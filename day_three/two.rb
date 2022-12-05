@@ -10,7 +10,6 @@ def run
       calculator(g)
     end
 
-  binding.pry
   puts total_priority
 end
 
@@ -32,4 +31,3 @@ def priority
 end
 
 run
-
