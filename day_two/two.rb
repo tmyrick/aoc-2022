@@ -1,64 +1,66 @@
+# frozen_string_literal: true
+
 require 'pry'
 
 def choice_point_map
   {
-    "X" => 1,
-    "Y" => 2,
-    "Z" => 3
+    'X' => 1,
+    'Y' => 2,
+    'Z' => 3
   }
 end
 
 def result_point_map
   {
-    "X" => 0,
-    "Y" => 3,
-    "Z" => 6
+    'X' => 0,
+    'Y' => 3,
+    'Z' => 6
   }
 end
 
 def win_map
   {
-    "X" => "Y",
-    "Y" => "Z",
-    "Z" => "X"
+    'X' => 'Y',
+    'Y' => 'Z',
+    'Z' => 'X'
   }
 end
 
 def lose_map
   {
-    "X" => "Z",
-    "Y" => "X",
-    "Z" => "Y"
+    'X' => 'Z',
+    'Y' => 'X',
+    'Z' => 'Y'
   }
 end
 
 def tie_map
   {
-    "X" => "X",
-    "Y" => "Y",
-    "Z" => "Z"
+    'X' => 'X',
+    'Y' => 'Y',
+    'Z' => 'Z'
   }
 end
 
 def response_map
   {
-    "X" => "A",
-    "Y" => "B",
-    "Z" => "C"
+    'X' => 'A',
+    'Y' => 'B',
+    'Z' => 'C'
   }
 end
 
 def result_map
   {
-    "X" => lose_map,
-    "Y" => tie_map,
-    "Z" => win_map
+    'X' => lose_map,
+    'Y' => tie_map,
+    'Z' => win_map
   }
 end
 
 def run
-  file = File.read("input.txt").split("\n")
-  arr = file.map{|f| f.split(" ")}
+  file = File.read('input.txt').split("\n")
+  arr = file.map { |f| f.split(' ') }
 
   total_pts = arr.sum do |m|
     opponent_move = response_map.key(m[0])

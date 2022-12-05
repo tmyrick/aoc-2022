@@ -1,4 +1,6 @@
-file = File.read("input.txt").split("\n\n")
+# frozen_string_literal: true
+
+file = File.read('input.txt').split("\n\n")
 
 calories_per_elf = file.map do |l|
   l.split.map(&:to_i).reduce(:+)

@@ -1,40 +1,42 @@
+# frozen_string_literal: true
+
 require 'pry'
 
 def response_map
   {
-    "X" => "A",
-    "Y" => "B",
-    "Z" => "C"
+    'X' => 'A',
+    'Y' => 'B',
+    'Z' => 'C'
   }
 end
 
 def win_map
   {
-    "A" => "C",
-    "B" => "A",
-    "C" => "B"
+    'A' => 'C',
+    'B' => 'A',
+    'C' => 'B'
   }
 end
 
 def choice_point_map
   {
-    "A" => 1,
-    "B" => 2,
-    "C" => 3
+    'A' => 1,
+    'B' => 2,
+    'C' => 3
   }
 end
 
 def match_point_map
   {
-    "win" => 6,
-    "tie" => 3,
-    "loss" => 0
+    'win' => 6,
+    'tie' => 3,
+    'loss' => 0
   }
 end
 
 def run
-  file = File.read("input.txt").split("\n")
-  arr = file.map{|f| f.split(" ")}
+  file = File.read('input.txt').split("\n")
+  arr = file.map { |f| f.split(' ') }
 
   total_pts = arr.sum do |m|
     opponent_move = m[0]
@@ -50,11 +52,11 @@ def result_points(opponent_move, response_move)
 
   result =
     if win_map.fetch(response_move) == opponent_move
-      "win"
+      'win'
     elsif opponent_move == response_move
-      "tie"
+      'tie'
     else
-      "loss"
+      'loss'
     end
 
   points + match_point_map.fetch(result)

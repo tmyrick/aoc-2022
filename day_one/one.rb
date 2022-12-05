@@ -1,4 +1,6 @@
-file = File.read("input.txt").split("\n\n")
+# frozen_string_literal: true
+
+file = File.read('input.txt').split("\n\n")
 
 max = 0
 file.map do |l|
